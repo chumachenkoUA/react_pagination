@@ -5,16 +5,14 @@ import cn from 'classnames';
 type Props = {
   total: number;
   perPage: number;
-  visibleItems: string[];
-  currentPage: number;
+  currentPage?: number;
   onPageChange: (page: number) => void;
 };
 
 export const Pagination: React.FC<Props> = ({
   total,
-  visibleItems,
   perPage,
-  currentPage,
+  currentPage = 1,
   onPageChange,
 }) => {
   const pagesCount = Math.ceil(total / perPage);
@@ -78,13 +76,6 @@ export const Pagination: React.FC<Props> = ({
             »
           </a>
         </li>
-      </ul>
-      <ul>
-        {visibleItems.map(item => (
-          <li key={item} data-cy="item">
-            {item}
-          </li>
-        ))}
       </ul>
     </>
   );

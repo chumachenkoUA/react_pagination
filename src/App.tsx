@@ -57,11 +57,18 @@ export const App: React.FC = () => {
 
       <Pagination
         total={total}
-        visibleItems={visibleItems}
         perPage={perPage}
         currentPage={currentPage}
         onPageChange={setCurrentPage}
       />
+
+      <ul>
+        {visibleItems.map(item => (
+          <li key={item} data-cy="item">
+            {item}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
